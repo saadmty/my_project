@@ -1,0 +1,38 @@
+{% extends 'basse.html'%}
+{% block content %}
+
+<h1>Stock details</h1>
+
+<table class="table table-hover">
+
+<thead>
+    <tr>
+        <th>id</th>
+    <th>Name</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+ 
+    </tr>
+</thead>
+<tbody>
+    {% for book in object_list %}
+    <tr>
+    <td>{{ book.pk }} : </td>
+    <td>{{ book.model }}</td>
+    <td>{{ book.Qty }}</td>
+    <td align="left">{{ book.Price }}</td>
+    <td>
+        <img src="{{book.image.url}}"  height="30%" width="15%" class="img-thumbnail" alt="...">
+    </td>
+    <td><a  href="{% url 'book_view' book.id %}" class="btn btn-success btn-sm">view</a>
+       </td>
+
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+
+{% extends 'basse.html'%}
+{% block content %}
+
+
+  <h1>Book Delete</h1>
+   <form method="post">
+   	{% csrf_token %}
+      Are you sure you want to delete "{{ object }}" ?
+      <input type="submit" value="Submit" class="btn btn-danger btn-sm" />
+      <a class="btn btn-outline-success btn-sm" href="{%url 'home'%}">Back</a>
+
+    </form>
+
+
+{% endblock %}

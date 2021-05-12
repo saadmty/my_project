@@ -1,0 +1,17 @@
+{% extends 'basse.html'%}
+{% block content %}
+
+
+<center>
+<h1>Item Edit</h1>
+<form method="POST" class="table table-hover" enctype="multipart/form-data" >
+	{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="btn btn-primary"  />
+         {% if obj %}
+        <h3>Succesfully uploaded : {{img_obj.Qty}}</h3>
+        <img src="{{ obj.image.url}}" alt="image" class="img-thumbnail"  >
+        {% endif %}
+</form>
+</center>
+{% endblock %}

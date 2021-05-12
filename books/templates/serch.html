@@ -1,0 +1,48 @@
+
+{% extends 'basse.html'%}
+{% block content %}
+<center> 
+  {% if searche %}
+   
+  <table class="table table-hover">
+    <thead>
+      <tr>
+      
+        <th>id</th>
+        <th>Model.no</th>
+        <th>Qty</th>
+        <th>Price</th>
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+<br/>
+ {% for item in items %}
+
+      <tr>
+
+        <td>{{ item.pk }} : </td>
+        <td>{{ item.model }} </td>
+
+        <td>{{ item.Qty }}</td>
+        <td>{{ item.Price }}</td>
+
+        <td>
+        <img src="{{item.image.url}}"  height="30%" width="15%" class="img-thumbnail" alt="...">
+        </td>
+        
+        <td><a  href="{% url 'book_view' item.id %}" class="btn btn-success btn-sm">view</a>
+       </td>
+      <tr/>
+
+  {% endfor %}
+  {%else%}
+    <h1>hey you forgot to serach</h1>
+
+  {%endif%}
+ </center>
+ 
+{% endblock %}
+
